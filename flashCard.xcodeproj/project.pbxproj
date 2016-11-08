@@ -15,6 +15,13 @@
 		4FC173571DB3406900582F90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FC173551DB3406900582F90 /* LaunchScreen.storyboard */; };
 		4FC173621DB3406900582F90 /* flashCardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FC173611DB3406900582F90 /* flashCardTests.m */; };
 		4FC1736D1DB3406900582F90 /* flashCardUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FC1736C1DB3406900582F90 /* flashCardUITests.m */; };
+		4FC1737C1DB3411200582F90 /* FlashCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FC1737B1DB3411200582F90 /* FlashCard.m */; };
+		4FC1737D1DB3411200582F90 /* FlashCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FC1737B1DB3411200582F90 /* FlashCard.m */; };
+		4FC173801DB3441F00582F90 /* FlashCardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FC1737F1DB3441F00582F90 /* FlashCardModel.m */; };
+		4FC173811DB3441F00582F90 /* FlashCardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FC1737F1DB3441F00582F90 /* FlashCardModel.m */; };
+		4FC739A91DD0501F00356C89 /* FlashCardTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FC739A81DD0501F00356C89 /* FlashCardTableViewController.m */; };
+		4FC739AC1DD1220100356C89 /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FC739AB1DD1220100356C89 /* AddViewController.m */; };
+		4FC739AE1DD1232900356C89 /* flashCardData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FC739AD1DD1232900356C89 /* flashCardData.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +58,15 @@
 		4FC173681DB3406900582F90 /* flashCardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = flashCardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FC1736C1DB3406900582F90 /* flashCardUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = flashCardUITests.m; sourceTree = "<group>"; };
 		4FC1736E1DB3406900582F90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4FC1737A1DB3411200582F90 /* FlashCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashCard.h; sourceTree = "<group>"; };
+		4FC1737B1DB3411200582F90 /* FlashCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlashCard.m; sourceTree = "<group>"; };
+		4FC1737E1DB3441F00582F90 /* FlashCardModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashCardModel.h; sourceTree = "<group>"; };
+		4FC1737F1DB3441F00582F90 /* FlashCardModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlashCardModel.m; sourceTree = "<group>"; };
+		4FC739A71DD0501F00356C89 /* FlashCardTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashCardTableViewController.h; sourceTree = "<group>"; };
+		4FC739A81DD0501F00356C89 /* FlashCardTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlashCardTableViewController.m; sourceTree = "<group>"; };
+		4FC739AA1DD1220100356C89 /* AddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
+		4FC739AB1DD1220100356C89 /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
+		4FC739AD1DD1232900356C89 /* flashCardData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = flashCardData.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,10 +122,19 @@
 				4FC1734D1DB3406900582F90 /* ViewController.h */,
 				4FC1734E1DB3406900582F90 /* ViewController.m */,
 				4FC173501DB3406900582F90 /* Main.storyboard */,
+				4FC739AA1DD1220100356C89 /* AddViewController.h */,
+				4FC739AB1DD1220100356C89 /* AddViewController.m */,
+				4FC739AD1DD1232900356C89 /* flashCardData.plist */,
+				4FC739A71DD0501F00356C89 /* FlashCardTableViewController.h */,
+				4FC739A81DD0501F00356C89 /* FlashCardTableViewController.m */,
 				4FC173531DB3406900582F90 /* Assets.xcassets */,
 				4FC173551DB3406900582F90 /* LaunchScreen.storyboard */,
 				4FC173581DB3406900582F90 /* Info.plist */,
 				4FC173471DB3406900582F90 /* Supporting Files */,
+				4FC1737A1DB3411200582F90 /* FlashCard.h */,
+				4FC1737B1DB3411200582F90 /* FlashCard.m */,
+				4FC1737E1DB3441F00582F90 /* FlashCardModel.h */,
+				4FC1737F1DB3441F00582F90 /* FlashCardModel.m */,
 			);
 			path = flashCard;
 			sourceTree = "<group>";
@@ -246,6 +271,7 @@
 				4FC173571DB3406900582F90 /* LaunchScreen.storyboard in Resources */,
 				4FC173541DB3406900582F90 /* Assets.xcassets in Resources */,
 				4FC173521DB3406900582F90 /* Main.storyboard in Resources */,
+				4FC739AE1DD1232900356C89 /* flashCardData.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,8 +296,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FC739A91DD0501F00356C89 /* FlashCardTableViewController.m in Sources */,
 				4FC1734F1DB3406900582F90 /* ViewController.m in Sources */,
 				4FC1734C1DB3406900582F90 /* AppDelegate.m in Sources */,
+				4FC739AC1DD1220100356C89 /* AddViewController.m in Sources */,
+				4FC173801DB3441F00582F90 /* FlashCardModel.m in Sources */,
+				4FC1737C1DB3411200582F90 /* FlashCard.m in Sources */,
 				4FC173491DB3406900582F90 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +310,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FC173811DB3441F00582F90 /* FlashCardModel.m in Sources */,
+				4FC1737D1DB3411200582F90 /* FlashCard.m in Sources */,
 				4FC173621DB3406900582F90 /* flashCardTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -498,6 +530,7 @@
 				4FC173731DB3406900582F90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4FC173741DB3406900582F90 /* Build configuration list for PBXNativeTarget "flashCardTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +539,7 @@
 				4FC173761DB3406900582F90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4FC173771DB3406900582F90 /* Build configuration list for PBXNativeTarget "flashCardUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +548,7 @@
 				4FC173791DB3406900582F90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

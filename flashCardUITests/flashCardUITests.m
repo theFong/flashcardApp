@@ -9,7 +9,6 @@
 #import <XCTest/XCTest.h>
 
 @interface flashCardUITests : XCTestCase
-
 @end
 
 @implementation flashCardUITests
