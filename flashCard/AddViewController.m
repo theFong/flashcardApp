@@ -46,13 +46,13 @@
     return YES;
 }
 
-- (void) enableSaveButtonForFlashCard: (NSString *) questionText answer: (NSString *) answerText{
+- (void) enableSaveButtonForFlashcard: (NSString *) questionText answer: (NSString *) answerText{
 //    NSLog(@"%s",(questionText.length > 0 && answerText.length > 0) ? "true":"false");
     self.saveButton.enabled = (questionText.length > 0 && answerText.length > 0);
 }
 - (BOOL) textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     NSString* changedString = [textField.text stringByReplacingCharactersInRange:range withString:string];
-    [self enableSaveButtonForFlashCard:self.questionTextView.text answer:changedString];
+    [self enableSaveButtonForFlashcard:self.questionTextView.text answer:changedString];
     return YES;
 }
 

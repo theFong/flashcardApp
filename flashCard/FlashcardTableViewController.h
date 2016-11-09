@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FlashCardTableViewController : UITableViewController
+@interface FlashcardTableViewController : UITableViewController
 
 @end

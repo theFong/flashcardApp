@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "FlashCard.h"
 
-@interface FlashCardModel : NSObject
+@interface FlashcardModel : NSObject
 
 @property (readonly) long long currentIndex;
 // Creating the model
@@ -17,10 +17,10 @@
 // Accessing number of flashcards in model
 - (NSUInteger) numberOfFlashcards;
 // Accessing a flashcard – sets currentIndex appropriately
-- (FlashCard *) randomFlashcard;
-- (FlashCard *) flashcardAtIndex: (NSUInteger)index;
-- (FlashCard *) nextFlashcard;
-- (FlashCard *) prevFlashcard;
+- (Flashcard *) randomFlashcard;
+- (Flashcard *) flashcardAtIndex: (NSUInteger)index;
+- (Flashcard *) nextFlashcard;
+- (Flashcard *) prevFlashcard;
 // Inserting a flashcard
 - (void) insertWithQuestion: (NSString *) question
                      answer: (NSString *) ans

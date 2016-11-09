@@ -15,7 +15,7 @@ static NSString * const kFavKey = @"fav";
 static NSString * const kFavoriteYes = @"yes";
 static NSString * const kFavoriteNo = @"no";
 
-@interface FlashCard : NSObject
+@interface Flashcard : NSObject
 
 @property (strong, nonatomic, readonly) NSString* question;
 @property (strong, nonatomic, readonly) NSString* answer;

@@ -6,13 +6,13 @@
 //  Copyright © 2016 Alec Fong. All rights reserved.
 //
 
-#import "FlashCard.h"
+#import "Flashcard.h"
 
-@interface FlashCard()
+@interface Flashcard()
 
 @end
 
-@implementation FlashCard
+@implementation Flashcard
 
 - (instancetype) initWithQuestion: (NSString *) question
                            answer: (NSString *) ans{

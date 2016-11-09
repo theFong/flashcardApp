@@ -6,21 +6,21 @@
 //  Copyright © 2016 Alec Fong. All rights reserved.
 //
 
-#import "FlashCardModel.h"
+#import "FlashcardModel.h"
 
-@interface FlashCardModel()
-@property (strong, nonatomic) NSMutableArray* flashCards;
+@interface FlashcardModel()
+@property (strong, nonatomic) NSMutableArray* flashcards;
 @property (strong, nonatomic) NSString* filepath;
-@property (strong, nonatomic) FlashCard* noFlashcardsCard;
+@property (strong, nonatomic) Flashcard* noFlashcardsCard;
 @end
 
-@implementation FlashCardModel
+@implementation FlashcardModel
 
 - (instancetype)init
 {
     self = [super init];
     
-    _noFlashcardsCard = [[FlashCard alloc] initWithQuestion:@"There are no more flashcards!" answer:@"Please add flashcards!"];
+    _noFlashcardsCard = [[Flashcard alloc] initWithQuestion:@"There are no more flashcards!" answer:@"Please add more flashcards!"];
     
     if (self) {
         // set the _currentIndex
@@ -34,20 +34,18 @@
         NSMutableArray* cards = [NSMutableArray arrayWithContentsOfFile:_filepath];
         
         if (!cards) { // no file
-            _flashCards = [[NSMutableArray alloc] initWithObjects:
-                            [[FlashCard alloc] initWithQuestion:@"What is Lucas's Last name?" answer:@"Anfang"],
-                            [[FlashCard alloc] initWithQuestion:@"What is the color of the sky?" answer:@"Blue"],
-                            [[FlashCard alloc] initWithQuestion:@"What is FIJI?" answer:@"RIP"],
-                            [[FlashCard alloc] initWithQuestion:@"What is Obama?" answer:@"Black(is that midly racist?)"],
-                            [[FlashCard alloc] initWithQuestion:@"Who tore down that wall that was in Berlin along the iron curtain?" answer:@"Gorbachev"],nil];
+            _flashcards = [[NSMutableArray alloc] initWithObjects:
+                            [[Flashcard alloc] initWithQuestion:@"Sample Question" answer:@"Sample Answer"],
+                            [[Flashcard alloc] initWithQuestion:@"Who is the author of this app?" answer:@"Alec Fong"],nil];
+            [self save];
         } else {
-            _flashCards = [[NSMutableArray alloc] init];
+            _flashcards = [[NSMutableArray alloc] init];
             NSDictionary* card;
-            FlashCard* flashcard;
+            Flashcard* flashcard;
             
             for (card in cards) {
-                flashcard = [[FlashCard alloc] initWithDictionary: card];
-                [_flashCards addObject: flashcard];
+                flashcard = [[Flashcard alloc] initWithDictionary: card];
+                [_flashcards addObject: flashcard];
             }
         }
     }
@@ -55,7 +53,7 @@
 }
 
 + (instancetype) sharedModel{
-    static FlashCardModel *_sharedModel = nil;
+    static FlashcardModel *_sharedModel = nil;
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -66,49 +64,49 @@
 }
 // Accessing number of flashcards in model
 - (NSUInteger) numberOfFlashcards{
-    return [self.flashCards count];
+    return [self.flashcards count];
 }
 // Accessing a flashcard – sets currentIndex appropriately
-- (FlashCard *) randomFlashcard{
+- (Flashcard *) randomFlashcard{
     if ([self numberOfFlashcards] < 1) {
         return self.noFlashcardsCard;
     }
      _currentIndex = arc4random()%[self numberOfFlashcards];
     return [self flashcardAtIndex:_currentIndex];
 }
-- (FlashCard *) flashcardAtIndex: (NSUInteger)index{
+- (Flashcard *) flashcardAtIndex: (NSUInteger)index{
     if ([self numberOfFlashcards] < 1) {
         return self.noFlashcardsCard;
     }
     _currentIndex = index;
-    return self.flashCards[self.currentIndex];
+    return self.flashcards[self.currentIndex];
 }
-- (FlashCard *) nextFlashcard{
+- (Flashcard *) nextFlashcard{
     if ([self numberOfFlashcards] < 1) {
         return self.noFlashcardsCard;
     }
     _currentIndex = self.currentIndex == [self numberOfFlashcards]-1 ? 0:self.currentIndex+1;
-    return self.flashCards[self.currentIndex];
+    return self.flashcards[self.currentIndex];
 }
-- (FlashCard *) prevFlashcard{
+- (Flashcard *) prevFlashcard{
     if ([self numberOfFlashcards] < 1) {
         return self.noFlashcardsCard;
     }
     _currentIndex = 0 > self.currentIndex-1 ? [self numberOfFlashcards]-1:self.currentIndex-1;
-    return self.flashCards[self.currentIndex];
+    return self.flashcards[self.currentIndex];
 }
 // Inserting a flashcard
 - (void) insertWithQuestion: (NSString *) question
                      answer: (NSString *) ans
                    favorite: (BOOL)fav{
-    [self.flashCards addObject:[[FlashCard alloc] initWithQuestion:question answer:ans]];
+    [self.flashcards addObject:[[Flashcard alloc] initWithQuestion:question answer:ans]];
     [self save];
 }
 - (void) insertWithQuestion: (NSString *) question
                      answer: (NSString *) ans
                    favorite: (NSNumber *) fav
                     atIndex: (NSUInteger) index{
-    [self.flashCards insertObject:[[FlashCard alloc] initWithQuestion:question answer:ans] atIndex:index];
+    [self.flashcards insertObject:[[Flashcard alloc] initWithQuestion:question answer:ans] atIndex:index];
     [self save];
 }
 // Removing a flashcard
@@ -116,7 +114,7 @@
     if ([self numberOfFlashcards] < 1) {
         return;
     }
-    [self.flashCards removeLastObject];
+    [self.flashcards removeLastObject];
     [self save];
     _currentIndex = 0 > self.currentIndex-1 ? [self numberOfFlashcards]-1:self.currentIndex-1;
 }
@@ -124,7 +122,7 @@
     if ([self numberOfFlashcards] < 1) {
         return;
     }
-    [self.flashCards removeObjectAtIndex:index];
+    [self.flashcards removeObjectAtIndex:index];
     [self save];
     
     _currentIndex = 0 > self.currentIndex-1 ? [self numberOfFlashcards]-1:self.currentIndex-1;
@@ -132,22 +130,22 @@
 // Favorite/unfavorite the current flashcard
 - (void) toggleFavorite{
     [self save];
-    [self.flashCards[self.currentIndex] setIsFavorite:YES];
+    [self.flashcards[self.currentIndex] setIsFavorite:YES];
 }
 // Getting the favorite flashcards
 - (NSArray *) favoriteFlashcards{
     NSMutableArray *favorites = [[NSMutableArray alloc] initWithCapacity:5];
     for (int i = 0; i < [self numberOfFlashcards]; i++) {
-        if ([self.flashCards[i] isFavorite]) {
-            [favorites addObject:self.flashCards[i]];
+        if ([self.flashcards[i] isFavorite]) {
+            [favorites addObject:self.flashcards[i]];
         }
     }
     return favorites;
 }
 - (void) save {
     NSMutableArray* cards = [[NSMutableArray alloc] init];
-    FlashCard* card;
-    for (card in self.flashCards) {
+    Flashcard* card;
+    for (card in self.flashcards) {
         [cards addObject: [card dictionary]];
     }
     [cards writeToFile:self.filepath atomically:YES];

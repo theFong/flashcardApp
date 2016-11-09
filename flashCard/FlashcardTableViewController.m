@@ -6,21 +6,21 @@
 //  Copyright © 2016 Alec Fong. All rights reserved.
 //
 
-#import "FlashCardTableViewController.h"
-#import "FlashCardModel.h"
+#import "FlashcardTableViewController.h"
+#import "FlashcardModel.h"
 #import "AddViewController.h"
 
-@interface FlashCardTableViewController ()
+@interface FlashcardTableViewController ()
 
-@property (strong, nonatomic) FlashCardModel* flashCardModel;
+@property (strong, nonatomic) FlashcardModel* flashcardModel;
 
 @end
 
-@implementation FlashCardTableViewController
+@implementation FlashcardTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _flashCardModel = [FlashCardModel sharedModel];
+    _flashcardModel = [FlashcardModel sharedModel];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -39,18 +39,18 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.flashCardModel numberOfFlashcards];
+    return [self.flashcardModel numberOfFlashcards];
 }
 
 #pragma mark - Table View Delegate
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString* CellIdentifier = @"FlashCardCell";
+    static NSString* CellIdentifier = @"FlashcardCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
-    cell.textLabel.text = [self.flashCardModel flashcardAtIndex:indexPath.row].question;
+    cell.textLabel.text = [self.flashcardModel flashcardAtIndex:indexPath.row].question;
     
     return cell;
 }
@@ -67,7 +67,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete from model
-        [self.flashCardModel removeFlashcardAtIndex:indexPath.row];
+        [self.flashcardModel removeFlashcardAtIndex:indexPath.row];
         
         // Delete the row from the data source
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -101,7 +101,7 @@
     AddViewController *avc = segue.destinationViewController;
     avc.completionHandler = ^(NSString *question, NSString *answer){
         if (question != nil) {
-            [self.flashCardModel insertWithQuestion:question answer:answer favorite:false];
+            [self.flashcardModel insertWithQuestion:question answer:answer favorite:false];
             [self.tableView reloadData];
         }
         [self dismissViewControllerAnimated:YES completion:nil];

@@ -9,7 +9,7 @@
         <!--Question-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="FlashcardViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -89,16 +89,16 @@
             </objects>
             <point key="canvasLocation" x="1020" y="761"/>
         </scene>
-        <!--Flash Cards-->
+        <!--Flashcards-->
         <scene sceneID="VtN-Sj-ijD">
             <objects>
-                <tableViewController id="T9Q-kd-ce2" customClass="FlashCardTableViewController" sceneMemberID="viewController">
+                <tableViewController id="T9Q-kd-ce2" customClass="FlashcardTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="6JE-k3-m2d">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FlashCardCell" textLabel="D3t-l6-8di" style="IBUITableViewCellStyleDefault" id="5kQ-XX-QFp">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FlashcardCell" textLabel="D3t-l6-8di" style="IBUITableViewCellStyleDefault" id="5kQ-XX-QFp">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5kQ-XX-QFp" id="tQh-q4-Xg8">
@@ -109,7 +109,7 @@
                                             <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -121,7 +121,7 @@
                             <outlet property="delegate" destination="T9Q-kd-ce2" id="Oc8-3H-nUt"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Flash Cards" id="3lt-Fm-dbO">
+                    <navigationItem key="navigationItem" title="Flashcards" id="3lt-Fm-dbO">
                         <barButtonItem key="leftBarButtonItem" systemItem="edit" id="gqc-oZ-PWR"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ji1-Lq-ulc">
                             <connections>
@@ -158,7 +158,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Question:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uwy-Tf-D0K">
                                 <rect key="frame" x="20" y="88" width="560" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Answer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tUJ-Ik-fwi">
